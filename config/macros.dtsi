@@ -222,3 +222,27 @@
     bindings = <&mkp MB1 &mkp MB1>;
     display-name = "Double Click";
   };
+
+  macro_arrow_l: macro_arrow_left {
+    compatible = "zmk,behavior-macro";
+    label = "ARROW_LEFT";
+    #binding-cells = <0>;
+    bindings = <&kp LT>, <&kp MINUS>;
+    display-name = "<-";
+  };
+
+  macro_arrow_r: macro_arrow_right {
+    compatible = "zmk,behavior-macro";
+    label = "ARROW_RIGHT";
+    #binding-cells = <0>;
+    bindings = <&kp MINUS>, <&kp GT>;
+    display-name = "->";
+  };
+
+  macro_fat_arrow: macro_fat_arrow {
+    compatible = "zmk,behavior-macro";
+    label = "FAT_ARROW";
+    #binding-cells = <0>;
+    bindings = <&kp EQUAL>, <&kp GT>;
+    display-name = "=>";
+  };

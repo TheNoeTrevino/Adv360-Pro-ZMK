@@ -16,9 +16,39 @@
           label = "HOMEROW_MODS";
           #binding-cells = <2>;
           tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
+          quick_tap_ms = <120>;
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
+      };
+
+      lt_s: layer_tap_symbols {
+          compatible = "zmk,behavior-hold-tap";
+          label = "LAYER_TAP_SYM";
+          #binding-cells = <2>;
+          tapping-term-ms = <200>;
+          quick_tap_ms = <120>;
+          flavor = "balanced";
+          bindings = <&mo>, <&kp>;
+      };
+
+      lt_d: layer_tap_pairs {
+          compatible = "zmk,behavior-hold-tap";
+          label = "LAYER_TAP_PAIRS";
+          #binding-cells = <2>;
+          tapping-term-ms = <200>;
+          quick_tap_ms = <120>;
+          flavor = "balanced";
+          bindings = <&mo>, <&kp>;
+      };
+
+      lt_f: layer_tap_keypad {
+          compatible = "zmk,behavior-hold-tap";
+          label = "LAYER_TAP_KEYPAD";
+          #binding-cells = <2>;
+          tapping-term-ms = <200>;
+          quick_tap_ms = <120>;
+          flavor = "balanced";
+          bindings = <&mo>, <&kp>;
       };
     };
 
@@ -28,31 +58,41 @@
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp PSCRN &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 4 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
         &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &kp ESC   &kp A     &lt_s 3 S &lt_d 2 D &lt_f 1 F &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &kp LSHFT &kp Z     &hm LGUI X &hm LALT C &hm LCTRL V &kp B                      &kp HOME &kp PG_UP                           &kp N  &hm RCTRL M &hm RALT COMMA &hm RGUI DOT &kp FSLH &kp RSHFT
+        &caps_word &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &mt LSHFT BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &mt RSHFT SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 5
       >;
     };
     keypad {
-      display-name = "Kp";
+      display-name = "Keypad";
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &mo 4 &trans &kp KP_PLUS &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp RBKT
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &trans &kp KP_EQUAL &kp KP_N4 &kp KP_N5    &kp KP_N6     &kp RIGHT
+        &trans    &trans    &trans   &trans   &trans     &trans &trans          &trans    &trans    &trans    &trans             &trans &trans &kp KP_MINUS &kp KP_N1 &kp KP_N2    &kp KP_N3     &kp RBRC
+        &trans    &trans    &trans   &trans   &trans     &trans                           &trans    &trans                              &trans &trans       &trans    &trans       &trans        &trans
+        &trans    &trans    &trans   &trans   &trans                   &trans    &trans   &trans    &trans    &trans    &kp KP_N0            &kp KP_N0    &kp COMMA &kp KP_DOT   &trans        &trans
       >;
     };
-    fn {
-      display-name = "Fn";
+    pairs {
+      display-name = "Pairs";
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
+        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &mo 4 &trans  &trans         &trans         &trans           &trans       &trans
+        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &trans &trans &kp LBKT       &kp LPAR       &kp RPAR         &kp RBKT     &trans
+        &trans    &trans    &trans    &trans    &trans    &trans &trans          &trans    &trans    &trans    &trans             &trans &trans &kp LEFT       &kp DOWN       &kp UP           &kp RIGHT    &trans
+        &trans    &trans    &trans    &trans    &trans    &trans                           &trans    &trans                              &trans &kp LBRC       &kp LT         &kp GT           &kp RBRC     &trans
+        &trans    &trans    &trans    &kp LEFT  &kp DOWN                &trans    &trans   &trans    &trans    &trans    &trans               &kp UP         &kp RIGHT      &macro_arrow_l   &macro_arrow_r &macro_fat_arrow
+      >;
+    };
+    symbols {
+      display-name = "Symbols";
+      bindings = <
+        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &mo 4  &trans &trans      &trans      &trans      &trans      &trans
+        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &trans &trans &kp AMPS    &kp STAR    &kp UNDER   &trans      &trans
+        &trans    &trans    &trans    &trans    &trans    &trans &trans          &trans    &trans    &trans    &trans             &trans &trans &kp DLLR    &kp PRCNT   &kp CARET   &kp GRAVE   &trans
+        &trans    &trans    &trans    &trans    &trans    &trans                           &trans    &trans                              &trans &kp EXCL    &kp AT      &kp HASH    &kp TILDE   &trans
+        &trans    &trans    &trans    &trans    &trans                   &trans    &trans  &trans    &trans    &trans    &trans               &trans      &trans      &trans      &trans      &trans
       >;
     };
     mod {
@@ -63,6 +103,16 @@
         &studio_unlock &none        &none        &none        &none        &none        &none                   &none &none &bt BT_CLR &none                      &stp STP_BAT &none        &none        &none        &none &none &none
         &none &none        &none        &none        &macro_ver   &none                                      &none &none                                                        &none        &none        &none        &none &none &none
         &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
+      >;
+    };
+    function {
+      display-name = "Function";
+      bindings = <
+        &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6  &trans                                                           &trans  &kp F7  &kp F8       &kp F9       &kp F10      &kp F11     &kp F12
+        &trans    &trans    &trans    &trans    &trans    &trans  &trans                                                           &trans  &trans  &trans       &trans       &trans       &trans      &trans
+        &trans    &trans    &trans    &trans    &trans    &trans  &trans          &trans    &trans    &trans    &trans             &trans  &trans  &trans       &trans       &trans       &trans      &trans
+        &trans    &trans    &trans    &trans    &trans    &trans                            &trans    &trans                               &trans  &trans       &trans       &trans       &trans      &trans
+        &trans    &trans    &trans    &kp C_PREV &kp C_NEXT                &trans    &trans  &trans    &trans    &kp C_PP   &trans               &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE   &trans      &trans
       >;
     };
     extra1 { 
