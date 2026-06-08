@@ -95,9 +95,9 @@ ZMK_HOLD_TAP(ltl,
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp PSCRN  &kp N1    &kp LPAR    &kp LBRC    &kp LBKT     &kp N5 &tog 1                                                           &mo 4 &kp N6       &kp RBKT        &kp RBRC      &kp RPAR  &kp N0   &kp MINUS
-        &kp TAB    &kp Q     &kp W       &kp E       &kp R        &kp T  &none                                                            &none &kp Y        &kp U           &kp I         &kp O     &kp P    &kp BSLH
-        &kp ESC    &kp A     &ltl 3 S    &ltl 2 D    &ltl 1 F     &kp G  &none                &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL      &none &kp H        &kp J           &kp K         &kp L     &kp SEMI &kp SQT
+        &kp PSCRN  &kp N1    &kp LPAR    &kp LBRC    &kp LBKT     &kp LT &tog 1                                                           &mo 4 &kp GT       &kp RBKT        &kp RBRC      &kp RPAR  &kp N0   &kp MINUS
+        &kp TAB    &kp Q     &kp W       &kp E       &kp R        &kp T  &none                                                            &none &kp Y        &kp U           &kp I         &kp O     &kp P      &kp BSLH
+        &kp ESC    &kp A     &ltl 3 S    &ltl 2 D    &ltl 1 F     &kp G  &none                &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL      &none &kp H        &kp J           &kp K         &kp L     &kp SEMI   &kp SQT
         &kp LSHFT  &kp Z     &hml LGUI X &hml LALT C &hml LCTRL V &kp B                       &kp HOME  &kp PG_UP                         &kp N &hmr RCTRL M &hmr RALT COMMA &hmr RGUI DOT &kp FSLH  &kp RSHFT
         &caps_word &kp GRAVE &kp CAPS    &alt_keypad &alt_keypad               &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN        &kp LBKT      &kp RBKT  &mo 5
       >;
@@ -105,11 +105,11 @@ ZMK_HOLD_TAP(ltl,
     keypad {
       display-name = "Keypad";
       bindings = <
-        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &mo 4  &trans       &trans    &trans    &trans     &trans  &trans
-        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &kp KP_PLUS  &kp N7    &kp N8    &kp N9     &trans  &trans
-        &trans    &trans    &trans   &trans   &trans     &trans &trans          &trans    &trans    &trans    &trans             &trans &kp KP_EQUAL &kp N4    &kp N5    &kp N6     &trans  &trans
-        &trans    &trans    &trans   &trans   &trans     &trans                           &trans    &trans                              &kp KP_MINUS &kp N1    &kp N2    &kp N3     &trans  &trans
-        &trans    &trans    &trans   &trans   &trans                   &trans    &trans   &trans    &trans    &trans    &kp N0                    &kp N0 &kp COMMA &kp KP_DOT &trans  &trans
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &mo 4  &trans    &trans  &trans    &trans     &trans  &trans
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &kp PLUS  &kp N7  &kp N8    &kp N9     &trans  &trans
+        &trans    &trans    &trans   &trans   &trans     &trans &trans          &trans    &trans    &trans    &trans             &trans &kp EQUAL &kp N4  &kp N5    &kp N6     &trans  &trans
+        &trans    &trans    &trans   &trans   &trans     &trans                           &trans    &trans                              &kp MINUS &kp N1  &kp N2    &kp N3     &trans  &trans
+        &trans    &trans    &trans   &trans   &trans                   &trans    &trans   &trans    &trans    &trans    &kp N0                    &kp N0  &kp COMMA &kp DOT &trans  &trans
       >;
     };
     pairs {
