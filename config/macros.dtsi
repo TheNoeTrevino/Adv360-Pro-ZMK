@@ -300,7 +300,7 @@
 
   // Types the GitHub blob URL for the rendered keymap so it can be pasted
   // straight into a browser. At 82 characters this queues 164 behaviors,
-  // which is why both defconfigs raise CONFIG_ZMK_BEHAVIOR_QUEUE_SIZE to 256.
+  // which is why both defconfigs raise CONFIG_ZMK_BEHAVIORS_QUEUE_SIZE to 256.
   url_keymap: url_keymap {
     compatible = "zmk,behavior-macro";
     label = "URL_KEYMAP";
