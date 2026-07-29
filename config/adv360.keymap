@@ -106,7 +106,7 @@ ZMK_HOLD_TAP(ltl,
       display-name = "Keypad";
       bindings = <
         &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &mo 4  &trans    &trans  &trans    &trans     &trans  &trans
-        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &kp PLUS  &kp N7  &kp N8    &kp N9     &trans  &trans
+        &trans    &trans    &trans   &trans   &trans     &trans &trans                                                           &trans &kp KP_PLUS &kp N7 &kp N8   &kp N9     &trans  &trans
         &trans    &trans    &trans   &trans   &trans     &trans &trans          &trans    &trans    &trans    &trans             &trans &kp EQUAL &kp N4  &kp N5    &kp N6     &trans  &trans
         &trans    &trans    &trans   &trans   &trans     &trans                           &trans    &trans                              &kp MINUS &kp N1  &kp N2    &kp N3     &trans  &trans
         &trans    &trans    &trans   &trans   &trans                   &trans    &trans   &trans    &trans    &trans    &kp N0                    &kp N0  &kp COMMA &kp DOT &trans  &trans
