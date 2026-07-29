@@ -113,13 +113,13 @@ ZMK_HOLD_TAP(ltl,
       >;
     };
     pairs {
-      display-name = "Pairs";
+      display-name = "Nav";
       bindings = <
-        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &mo 4 &trans  &trans         &trans         &trans           &trans       &trans
-        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &trans &trans &kp LBKT       &kp LPAR       &kp RPAR         &kp RBKT     &trans
-        &trans    &trans    &trans    &trans    &trans    &trans &trans          &trans    &trans    &trans    &trans             &trans &trans &kp LEFT       &kp DOWN       &kp UP           &kp RIGHT    &trans
-        &trans    &trans    &trans    &trans    &trans    &trans                           &trans    &trans                              &trans &kp LBRC       &kp LT         &kp GT           &kp RBRC     &trans
-        &trans    &trans    &trans    &kp LEFT  &kp DOWN                &trans    &trans   &trans    &trans    &trans    &trans               &kp UP         &kp RIGHT      &macro_arrow_l   &macro_arrow_r &macro_fat_arrow
+        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &mo 4  &trans        &trans         &trans           &trans           &trans       &trans
+        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &trans &kp LC(HOME)  &kp LC(LEFT)   &kp PG_DN        &kp PG_UP        &kp LC(RIGHT) &kp LC(END)
+        &trans    &trans    &trans    &trans    &trans    &trans &trans          &trans    &trans    &trans    &trans             &trans &kp HOME      &kp LEFT       &kp DOWN         &kp UP           &kp RIGHT     &kp END
+        &trans    &trans    &trans    &trans    &trans    &trans                           &trans    &trans                              &kp LC(LS(Z)) &kp LC(Z)      &kp LC(X)        &kp LC(C)        &kp LC(V)     &trans
+        &trans    &trans    &trans    &kp LEFT  &kp DOWN                &trans    &trans   &trans    &trans    &trans    &trans               &kp UP   &kp LC(Y)      &macro_arrow_l   &macro_arrow_r   &macro_fat_arrow
       >;
     };
     symbols {
