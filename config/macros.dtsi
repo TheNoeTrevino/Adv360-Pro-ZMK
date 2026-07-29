@@ -247,6 +247,57 @@
     display-name = "=>";
   };
 
+  // Email macros. wait-ms/tap-ms are lowered from the 30ms default so a ~26
+  // character string types in well under half a second instead of ~1.5s.
+  // These send US-layout keycodes, so `@` and `.` land correctly only on a
+  // US host layout.
+  email_personal: email_personal {
+    compatible = "zmk,behavior-macro";
+    label = "EMAIL_PERSONAL";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    tap-ms = <10>;
+    bindings =
+      <&kp N &kp O &kp E &kp T &kp R &kp E &kp V &kp I &kp N &kp O>,
+      <&kp DOT &kp M &kp U &kp S &kp I &kp C>,
+      <&kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+    display-name = "gmail (music)";
+  };
+
+  email_work: email_work {
+    compatible = "zmk,behavior-macro";
+    label = "EMAIL_WORK";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    tap-ms = <10>;
+    bindings =
+      <&kp N &kp O &kp E &kp DOT &kp T &kp R &kp E &kp V &kp I &kp N &kp O>,
+      <&kp AT &kp R &kp E &kp S &kp P &kp E &kp C &kp DOT &kp C &kp O &kp M>;
+    display-name = "respec";
+  };
+
+  email_alt: email_alt {
+    compatible = "zmk,behavior-macro";
+    label = "EMAIL_ALT";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    tap-ms = <10>;
+    bindings =
+      <&kp N &kp O &kp E &kp J &kp T &kp R &kp E &kp V>,
+      <&kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+    display-name = "gmail (njt)";
+  };
+
+  word_the: word_the {
+    compatible = "zmk,behavior-macro";
+    label = "WORD_THE";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    tap-ms = <10>;
+    bindings = <&kp T &kp H &kp E>;
+    display-name = "the";
+  };
+
   alt_keypad: alt_keypad {
     compatible = "zmk,behavior-macro";
     label = "ALT_KEYPAD";
