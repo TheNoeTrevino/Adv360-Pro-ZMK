@@ -1,6 +1,6 @@
 # Advantage 360 Pro — ZMK Keymap
 
-![Keymap](keymap-drawer/adv360.svg)
+[![Keymap](keymap-drawer/adv360.svg)](keymap-drawer/adv360.svg)
 
 The diagram above is generated from [`config/adv360.keymap`](config/adv360.keymap) on every push by
 [keymap-drawer](https://github.com/caksoylar/keymap-drawer) and committed back to this repo, so it is
