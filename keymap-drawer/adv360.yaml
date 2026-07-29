@@ -226,8 +226,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - UP
   - Ctl+Y
+  - Ctl+A
   - <-
   - ->
   - =>
