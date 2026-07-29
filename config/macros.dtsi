@@ -298,6 +298,27 @@
     display-name = "the";
   };
 
+  // Types the GitHub blob URL for the rendered keymap so it can be pasted
+  // straight into a browser. At 82 characters this queues 164 behaviors,
+  // which is why both defconfigs raise CONFIG_ZMK_BEHAVIOR_QUEUE_SIZE to 256.
+  url_keymap: url_keymap {
+    compatible = "zmk,behavior-macro";
+    label = "URL_KEYMAP";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    tap-ms = <10>;
+    bindings =
+      <&kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH>,
+      <&kp FSLH &kp G &kp I &kp T &kp H &kp U &kp B &kp DOT &kp C &kp O &kp M &kp FSLH>,
+      <&kp LS(T) &kp H &kp E &kp LS(N) &kp O &kp E &kp LS(T) &kp R &kp E &kp V &kp I &kp N &kp O &kp FSLH>,
+      <&kp LS(A) &kp D &kp V &kp N3 &kp N6 &kp N0 &kp MINUS &kp LS(P) &kp R &kp O &kp MINUS &kp LS(Z) &kp LS(M) &kp LS(K) &kp FSLH>,
+      <&kp B &kp L &kp O &kp B &kp FSLH>,
+      <&kp LS(V) &kp N3 &kp DOT &kp N0 &kp FSLH>,
+      <&kp K &kp E &kp Y &kp M &kp A &kp P &kp MINUS &kp D &kp R &kp A &kp W &kp E &kp R &kp FSLH>,
+      <&kp A &kp D &kp V &kp N3 &kp N6 &kp N0 &kp DOT &kp S &kp V &kp G>;
+    display-name = "keymap url";
+  };
+
   alt_keypad: alt_keypad {
     compatible = "zmk,behavior-macro";
     label = "ALT_KEYPAD";

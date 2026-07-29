@@ -16,6 +16,7 @@ parse_config:
     "&email_work": {t: "respec", s: "work"}
     "&email_alt": {t: "gmail", s: "njt"}
     "&word_the": "the"
+    "&url_keymap": {t: "keymap", s: "url"}
     "&macro_arrow_l": "<-"
     "&macro_arrow_r": "->"
     "&macro_fat_arrow": "=>"
