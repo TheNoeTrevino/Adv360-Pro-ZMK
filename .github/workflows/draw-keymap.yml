@@ -28,3 +28,28 @@ jobs:
       # The workflow auto-detects config/boards/arm/adv360/adv360-layouts.dtsi
       # for the physical layout, so no explicit -j/-d draw arg is required.
       fail_on_error: true
+
+  # Post links to the run summary. The draw job commits the SVG back to the
+  # branch, so these point at the branch ref rather than github.sha, which is
+  # the commit *before* the render landed.
+  link:
+    needs: draw
+    runs-on: ubuntu-latest
+    steps:
+      - name: Link to the rendered keymap
+        env:
+          REPO: ${{ github.repository }}
+          REF: ${{ github.ref_name }}
+        run: |
+          base="https://github.com/${REPO}/blob/${REF}/keymap-drawer"
+          {
+            echo "## Keymap diagram"
+            echo
+            echo "GitHub renders SVG in the blob view, so the first link opens the diagram itself."
+            echo
+            echo "| What | Link |"
+            echo "| --- | --- |"
+            echo "| Rendered diagram | [keymap-drawer/adv360.svg](${base}/adv360.svg) |"
+            echo "| Parsed keymap | [keymap-drawer/adv360.yaml](${base}/adv360.yaml) |"
+            echo "| Diagram history | [commits touching the SVG](https://github.com/${REPO}/commits/${REF}/keymap-drawer/adv360.svg) |"
+          } >> "$GITHUB_STEP_SUMMARY"
