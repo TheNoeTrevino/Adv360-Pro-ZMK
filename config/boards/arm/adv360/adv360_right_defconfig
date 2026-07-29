@@ -59,3 +59,7 @@ CONFIG_ZMK_BLE_EXPERIMENTAL_FEATURES=y
 
 CONFIG_ZMK_BLE=y
 CONFIG_ZMK_USB=y
+
+# Long text macros (the keymap URL is 82 characters) queue two entries
+# per tapped key, exceeding the default of 128.
+CONFIG_ZMK_BEHAVIOR_QUEUE_SIZE=256
