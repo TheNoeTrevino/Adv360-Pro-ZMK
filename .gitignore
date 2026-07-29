@@ -1,1 +1,5 @@
 /firmware/*.uf2
+
+# west workspace created when fetching zmk-helpers for keymap-drawer
+/.west/
+/zmk-helpers/

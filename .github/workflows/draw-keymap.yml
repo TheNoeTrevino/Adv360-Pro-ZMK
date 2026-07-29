@@ -1,0 +1,30 @@
+name: Draw keymap
+
+on:
+  push:
+    paths:
+      - 'config/adv360.keymap'
+      - 'config/macros.dtsi'
+      - 'config/boards/arm/adv360/adv360-layouts.dtsi'
+      - 'keymap_drawer.config.yaml'
+      - '.github/workflows/draw-keymap.yml'
+  workflow_dispatch:
+
+jobs:
+  draw:
+    permissions:
+      contents: write
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    with:
+      # adv360_left.keymap and adv360_right.keymap are one-line wrappers that
+      # #include adv360.keymap, so rendering all three would produce identical
+      # diagrams. Only the real keymap is drawn.
+      keymap_patterns: 'config/adv360.keymap'
+      config_path: 'keymap_drawer.config.yaml'
+      # Needed so `west update` fetches urob/zmk-helpers; the parse step cannot
+      # preprocess the keymap without its headers.
+      west_config_path: 'config'
+      output_folder: 'keymap-drawer'
+      # The workflow auto-detects config/boards/arm/adv360/adv360-layouts.dtsi
+      # for the physical layout, so no explicit -j/-d draw arg is required.
+      fail_on_error: true

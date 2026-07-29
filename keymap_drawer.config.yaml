@@ -1,0 +1,29 @@
+parse_config:
+  # This config uses urob's zmk-helpers (see config/west.yml). The workflow runs
+  # `west update` from the repo root, which places the module at ./zmk-helpers,
+  # so its headers live here. Without this, `#include "zmk-helpers/helper.h"`
+  # fails during preprocessing and the parse step errors out.
+  zmk_additional_includes:
+    - zmk-helpers/include
+
+  sticky_label: sticky
+  toggle_label: toggle
+
+  # Macros are rendered as their raw `&name` otherwise; display-name in
+  # macros.dtsi is not picked up by the parser.
+  raw_binding_map:
+    "&email_personal": {t: "gmail", s: "music"}
+    "&email_work": {t: "respec", s: "work"}
+    "&email_alt": {t: "gmail", s: "njt"}
+    "&word_the": "the"
+    "&macro_arrow_l": "<-"
+    "&macro_arrow_r": "->"
+    "&macro_fat_arrow": "=>"
+    "&macro_ver": "version"
+    "&caps_word": "caps word"
+
+draw_config:
+  # Follow the viewer's light/dark preference when embedded in the README.
+  dark_mode: auto
+  append_colon_to_layer_header: false
+  draw_key_sides: true
