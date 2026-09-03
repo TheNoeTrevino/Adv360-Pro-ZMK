@@ -116,8 +116,8 @@ ZMK_HOLD_TAP(ltl,
       display-name = "Nav";
       bindings = <
         &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &mo 4  &trans        &trans         &trans       &trans           &trans           &trans
-        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &trans &kp LC(HOME)  &kp LC(LEFT)   &kp PG_DN    &kp PG_UP        &kp LC(RIGHT)    &kp LC(END)
-        &trans    &trans    &trans    &trans    &trans    &trans &trans          &trans    &trans    &trans    &trans             &trans &kp HOME      &kp LEFT       &kp DOWN     &kp UP           &kp RIGHT        &kp END
+        &trans    &trans    &trans    &trans    &trans    &trans &trans                                                           &trans &kp LC(HOME)  &kp PG_DN      &kp PG_UP    &kp PG_UP        &kp LC(RIGHT)    &kp LC(END)
+        &trans    &trans    &trans    &trans    &trans    &trans &trans          &trans    &trans    &trans    &trans             &trans &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT        &trans           &kp END
         &trans    &trans    &trans    &trans    &trans    &trans                           &trans    &trans                              &kp LC(LS(Z)) &kp LC(Z)      &kp LC(X)    &kp LC(C)        &kp LC(V)        &trans
         &trans    &trans    &trans    &kp LEFT  &kp DOWN                &trans    &trans   &trans    &trans    &trans    &trans                        &kp LC(Y)      &kp LC(A)    &macro_arrow_l   &macro_arrow_r   &macro_fat_arrow
       >;
