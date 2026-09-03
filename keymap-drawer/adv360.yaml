@@ -30,7 +30,7 @@ layers:
   - P
   - \
   - ESC
-  - A
+  - {t: A, h: Sft+LGUI}
   - {t: S, h: Symbols}
   - {t: D, h: Nav}
   - {t: F, h: Keypad}
@@ -178,8 +178,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Ctl+HOME
-  - Ctl+LEFT
   - PG DN
+  - PG UP
   - PG UP
   - Ctl+RIGHT
   - Ctl+END
@@ -195,11 +195,11 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - HOME
   - LEFT
   - DOWN
   - UP
   - RIGHT
+  - {t: ▽, type: trans}
   - END
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
