@@ -1,5 +1,7 @@
 on: [push, pull_request, workflow_dispatch]
 
+# Same jobs as the Kinesis repo, running on Forgejo. Both build the left and
+# right halves; Clique adds ZMK Studio to the left.
 name: Build
 
 jobs:
@@ -9,6 +11,11 @@ jobs:
       image: zmkfirmware/zmk-build-arm:stable
     name: Build (Legacy)
     steps:
+      - name: Install Node for the actions
+        # The runner does not bring its own Node, and this image has none.
+        run: |
+          apt-get update && apt-get install -y curl zstd
+          curl -fsSL https://deb.nodesource.com/setup_22.x | bash && apt-get install -y nodejs
       - name: Checkout
         uses: actions/checkout@v4
       - name: Get version data
@@ -53,7 +60,7 @@ jobs:
       - name: Rename zmk.uf2
         run: cp build/left/zephyr/zmk.uf2 ${{ steps.get_info.outputs.file_prefix }}-left.uf2 && cp build/right/zephyr/zmk.uf2 ${{ steps.get_info.outputs.file_prefix }}-right.uf2
       - name: Archive (Adv360)
-        uses: actions/upload-artifact@v4
+        uses: forgejo/upload-artifact@v4
         with:
           name: firmware-no-clique
           path: |
@@ -65,6 +72,11 @@ jobs:
       image: zmkfirmware/zmk-build-arm:stable
     name: Build (Clique)
     steps:
+      - name: Install Node for the actions
+        # The runner does not bring its own Node, and this image has none.
+        run: |
+          apt-get update && apt-get install -y curl zstd
+          curl -fsSL https://deb.nodesource.com/setup_22.x | bash && apt-get install -y nodejs
       - name: Checkout
         uses: actions/checkout@v4
       - name: Get version data
@@ -109,7 +121,7 @@ jobs:
       - name: Rename zmk.uf2
         run: cp build/left/zephyr/zmk.uf2 ${{ steps.get_info.outputs.file_prefix }}-left.uf2 && cp build/right/zephyr/zmk.uf2 ${{ steps.get_info.outputs.file_prefix }}-right.uf2
       - name: Archive (Adv360)
-        uses: actions/upload-artifact@v4
+        uses: forgejo/upload-artifact@v4
         with:
           name: firmware-clique
           path: |
