@@ -25,7 +25,7 @@ Exact key positions for combos are documented in [assets/key-positions.md](asset
 
 ## Regenerating the diagram
 
-CI handles this automatically ([`.github/workflows/draw-keymap.yml`](.github/workflows/draw-keymap.yml)),
+CI handles this automatically ([`.forgejo/workflows/draw-keymap.yml`](.forgejo/workflows/draw-keymap.yml)),
 but to preview locally:
 
 ```shell
@@ -45,7 +45,7 @@ tunable in `keymap_drawer.config.yaml`.
 
 ## Building the firmware
 
-Via GitHub Actions: push a commit, then download the artifact from the build job.
+Via CI: push a commit, then download the artifact from the build job.
 
 Locally, with Docker or Podman plus `make`:
 

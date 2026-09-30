@@ -1,0 +1,59 @@
+name: Draw keymap
+
+# Redraws keymap-drawer/adv360.svg and commits it back on this branch.
+#
+# This used to call caksoylar/keymap-drawer's reusable workflow, which lives
+# on GitHub. Forgejo cannot call it, so the same steps are written out here.
+# adv360_left.keymap and adv360_right.keymap are one-line wrappers that
+# #include adv360.keymap, so only the real keymap is drawn.
+
+on:
+  push:
+    paths:
+      - 'config/adv360.keymap'
+      - 'config/macros.dtsi'
+      - 'config/boards/arm/adv360/adv360-layouts.dtsi'
+      - 'keymap_drawer.config.yaml'
+      - '.forgejo/workflows/draw-keymap.yml'
+  workflow_dispatch:
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install keymap-drawer and west
+        run: |
+          python3 -m venv "$HOME/keymap-drawer"
+          "$HOME/keymap-drawer/bin/pip" install --quiet keymap-drawer west
+          echo "$HOME/keymap-drawer/bin" >> "$GITHUB_PATH"
+
+      - name: Fetch west modules
+        # Needed so `west update` fetches urob/zmk-helpers; the parse step cannot
+        # preprocess the keymap without its headers.
+        run: |
+          west init -l config
+          west config --local manifest.project-filter " -zmk,-zephyr"
+          west update --fetch-opt=--filter=tree:0
+
+      - name: Draw keymap
+        run: |
+          mkdir -p keymap-drawer
+          keymap -c keymap_drawer.config.yaml parse -z config/adv360.keymap > keymap-drawer/adv360.yaml
+          keymap -c keymap_drawer.config.yaml draw keymap-drawer/adv360.yaml \
+            -d config/boards/arm/adv360/adv360-layouts.dtsi > keymap-drawer/adv360.svg
+
+      - name: Commit updated images
+        run: |
+          git add keymap-drawer/adv360.svg keymap-drawer/adv360.yaml
+          if git diff --cached --quiet; then
+            echo "The diagram is unchanged."
+            exit 0
+          fi
+          git -c user.name=forgejo-actions -c user.email=forgejo-actions@noreply.git.thenoetrevino.com \
+            commit -m "keymap-drawer render"
+          git push origin "HEAD:${{ github.ref_name }}"
